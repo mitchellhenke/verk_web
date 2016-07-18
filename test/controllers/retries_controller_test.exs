@@ -12,7 +12,7 @@ defmodule VerkWeb.RetriesControllerTest do
     delete conn, "/retries", jobs_to_delete: [fake_job_json]
   end
 
-  test "DELETE / passing no jobs deletes all jobs" do
+  test "DELETE / passing no jobs deletes all jobs", %{conn: conn} do
     :meck.expect(Verk.RetrySet, :clear, [], :ok)
     delete conn, "/retries"
   end

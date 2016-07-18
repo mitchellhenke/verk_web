@@ -23,14 +23,15 @@ defmodule VerkWeb.Mixfile do
   def application do
     [mod: {VerkWeb, []},
      env: [{VerkWeb.Endpoint, [http: [port: 4000], server: false]}],
-     applications: [:phoenix, :phoenix_html, :cowboy, :logger, :gettext, :verk]]
+     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext, :verk]]
   end
 
   defp elixirc_paths(:test), do: ["lib", "web", "test/support"]
   defp elixirc_paths(_),     do: ["lib", "web"]
 
   defp deps do
-    [{:phoenix, "~> 1.1.1"},
+    [{:phoenix, "~> 1.2.0"},
+     {:phoenix_pubsub, "~> 1.0"},
      {:phoenix_html, "~> 2.3"},
      {:gettext, "~> 0.9"},
      {:verk, "~> 0.11"},
